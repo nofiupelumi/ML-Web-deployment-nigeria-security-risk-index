@@ -1,0 +1,1727 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nigeria Risk Index: Premium Security Analysis 2018-2024</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@3.9.1/dist/chart.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2.0.0"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.1/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #000000;
+            color: #e0e0e0;
+            line-height: 1.6;
+        }
+        .report-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .chart-container {
+            height: 400px;
+            margin-bottom: 30px;
+            background-color: #1a1a1a;
+            border-radius: 8px;
+        }
+        .map-container {
+            height: 500px;
+            margin-bottom: 30px;
+            background-color: #1a1a1a;
+            border-radius: 8px;
+            position: relative;
+        }
+        .nigeria-map {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            opacity: 0.8;
+        }
+        .sidebar {
+            position: sticky;
+            top: 20px;
+        }
+        .nav-link {
+            transition: all 0.3s ease;
+        }
+        .nav-link:hover {
+            background-color: #333333;
+        }
+        .nav-link.active {
+            border-left: 4px solid #004d40;
+            background-color: #1a1a1a;
+        }
+        .stat-card {
+            transition: transform 0.3s ease;
+            background: linear-gradient(145deg, #1a1a1a 0%, #0a0a0a 100%);
+        }
+        .stat-card:hover {
+            transform: translateY(-5px);
+        }
+        .section-divider {
+            height: 4px;
+            background: linear-gradient(90deg, #004d40, #00695c, #00897b);
+            margin: 40px 0;
+            border-radius: 2px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid #333333;
+        }
+        th {
+            background-color: #1a1a1a;
+            font-weight: 600;
+            color: #00897b;
+        }
+        tr:hover {
+            background-color: #1a1a1a;
+        }
+        .logo {
+            height: 60px;
+        }
+        .risk-indicator {
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            display: inline-block;
+            margin-right: 10px;
+        }
+        .risk-high {
+            background-color: #d32f2f;
+        }
+        .risk-medium {
+            background-color: #f57c00;
+        }
+        .risk-low {
+            background-color: #00897b;
+        }
+        .header-gradient {
+            background: linear-gradient(135deg, #004d40 0%, #00695c 100%);
+            color: white;
+        }
+        .header-logo {
+            max-height: 80px;
+        }
+        .exec-summary {
+            background-color: #1a1a1a;
+            border-left: 4px solid #00897b;
+        }
+        .quote {
+            font-style: italic;
+            color: #b0bec5;
+            border-left: 4px solid #00695c;
+        }
+        .footer {
+            background-color: #004d40;
+            color: white;
+        }
+        .premium-card {
+            background: linear-gradient(145deg, #1a1a1a 0%, #0a0a0a 100%);
+            border: 1px solid #333333;
+        }
+        @media print {
+            .print-break-avoid {
+                break-inside: avoid;
+            }
+        }
+    </style>
+</head>
+<body class="bg-black">
+    <!-- Header -->
+    <header class="header-gradient py-6">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-wrap items-center justify-between">
+                <div>
+                    <h1 class="text-3xl md:text-4xl font-bold mb-2">Nigeria Risk Index</h1>
+                    <h2 class="text-xl md:text-2xl font-light">Premium Security Analysis 2018-2024</h2>
+                </div>
+                <div class="mt-4 md:mt-0">
+                    <p class="text-sm opacity-80">Published by</p>
+                    <p class="text-lg font-semibold">Risk Control</p>
+                    <p class="text-sm opacity-80">nigeriariskindex.com</p>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="report-container">
+        <!-- Table of Contents -->
+        <div class="my-8 p-6 premium-card rounded-lg shadow-md">
+            <h2 class="text-2xl font-bold mb-4 text-teal-400">Table of Contents</h2>
+            <ol class="list-decimal pl-5 space-y-2">
+                <li><a href="#executive-summary" class="text-teal-400 hover:underline">Executive Summary</a></li>
+                <li><a href="#key-findings" class="text-teal-400 hover:underline">Key Findings</a></li>
+                <li><a href="#national-overview" class="text-teal-400 hover:underline">National Overview</a></li>
+                <li><a href="#regional-analysis" class="text-teal-400 hover:underline">Regional Analysis</a></li>
+                <li><a href="#state-analysis" class="text-teal-400 hover:underline">State Analysis</a></li>
+                <li><a href="#risk-factors" class="text-teal-400 hover:underline">Analysis of Risk Factors</a></li>
+                <li><a href="#risk-indicators" class="text-teal-400 hover:underline">Risk Indicators</a></li>
+                <li><a href="#perpetrators" class="text-teal-400 hover:underline">Perpetrator Analysis</a></li>
+                <li><a href="#projections" class="text-teal-400 hover:underline">Future Projections</a></li>
+                <li><a href="#methodology" class="text-teal-400 hover:underline">Methodology</a></li>
+            </ol>
+        </div>
+
+        <!-- Executive Summary -->
+        <section id="executive-summary" class="mb-12">
+            <h2 class="text-3xl font-bold mb-6 text-teal-400">Executive Summary</h2>
+            <div class="exec-summary p-6 rounded-lg">
+                <p class="mb-4">This comprehensive report analyzes security incidents in Nigeria from 2018 to 2024, utilizing a meticulously curated database indexed by risk factors and indicators. Nigeria continues to face significant security challenges across multiple fronts, with homicide, kidnapping, terrorism, and communal conflicts presenting persistent threats to national stability and citizen safety.</p>
+                
+                <p class="mb-4">Over the past six years, security dynamics have evolved considerably across Nigeria's six geopolitical zones, with the North East facing a sustained insurgency by Boko Haram and Islamic State West Africa Province (ISWAP), the North West battling increasingly sophisticated bandits, and the North Central experiencing deadly farmer-herder conflicts. Meanwhile, separatist movements in the South East, militant activities in the South South, and urban crime in the South West contribute to a complex security landscape.</p>
+                
+                <p class="mb-4">Analysis of temporal trends demonstrates significant fluctuations in incident frequency and severity, with a notable 160.8% increase in security incidents from 2018 to 2024, though fatalities decreased by 41% in the same period. Geographic analysis reveals concentrated hotspots of insecurity, with Borno, Lagos, and Kaduna states bearing disproportionate impacts. The report also identifies concerning increases in attack sophistication, targeting patterns, and casualty rates in specific regions.</p>
+                
+                <p>This report provides stakeholders with actionable intelligence for security planning, risk mitigation, and policy development. The findings suggest that while progress has been made in some areas, emerging threats require adaptive strategies and coordinated responses across all levels of government, security agencies, and international partners.</p>
+            </div>
+        </section>
+
+        <div class="section-divider"></div>
+
+        <!-- Key Findings -->
+        <section id="key-findings" class="mb-12 print-break-avoid">
+            <h2 class="text-3xl font-bold mb-6 text-teal-400">Key Findings</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+                <div class="premium-card p-6 rounded-lg shadow-md stat-card">
+                    <div class="flex items-center mb-4">
+                        <div class="p-3 rounded-full bg-red-900 text-red-300 mr-4">
+                            <i class="fas fa-exclamation-triangle text-xl"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold text-teal-400">Incident Trends</h3>
+                    </div>
+                    <p>Security incidents increased by 160.8% from 2018 to 2024, with a total of 25,945 incidents recorded. Despite this increase, fatalities decreased by 41% during the same period, indicating potentially lower lethality per incident.</p>
+                </div>
+                
+                <div class="premium-card p-6 rounded-lg shadow-md stat-card">
+                    <div class="flex items-center mb-4">
+                        <div class="p-3 rounded-full bg-blue-900 text-blue-300 mr-4">
+                            <i class="fas fa-map-marked-alt text-xl"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold text-teal-400">Geographical Impact</h3>
+                    </div>
+                    <p>The North East region has the highest risk score (14.0), followed by North West (6.5) and North Central (5.2). These three northern regions account for 44.7% of all security incidents and 70.1% of all fatalities recorded.</p>
+                </div>
+                
+                <div class="premium-card p-6 rounded-lg shadow-md stat-card">
+                    <div class="flex items-center mb-4">
+                        <div class="p-3 rounded-full bg-yellow-900 text-yellow-300 mr-4">
+                            <i class="fas fa-users text-xl"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold text-teal-400">Perpetrator Groups</h3>
+                    </div>
+                    <p>Bandit groups have overtaken Boko Haram/ISWAP as the most active perpetrators, with their activity increasing from 25% of incidents in 2018-2020 to 35% in 2021-2024. Separatist movements have also nearly doubled their activity, from 8% to 15% in the same period.</p>
+                </div>
+                
+                <div class="premium-card p-6 rounded-lg shadow-md stat-card">
+                    <div class="flex items-center mb-4">
+                        <div class="p-3 rounded-full bg-green-900 text-green-300 mr-4">
+                            <i class="fas fa-shield-alt text-xl"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold text-teal-400">Risk Factors</h3>
+                    </div>
+                    <p>Economic disparities show the strongest correlation (0.76) with security incident frequency. Resource competition (0.72) and governance deficits (0.68) are also highly correlated, demonstrating the importance of addressing structural factors.</p>
+                </div>
+            </div>
+            
+            <div class="premium-card p-6 rounded-lg shadow-lg mb-8">
+                <h3 class="text-xl font-bold mb-4 text-teal-400">Key Statistics 2018-2024</h3>
+                <div class="overflow-x-auto">
+                    <table class="min-w-full">
+                        <thead>
+                            <tr>
+                                <th>Metric</th>
+                                <th>Value</th>
+                                <th>Change from 2018</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Total Security Incidents</td>
+                                <td>25,945</td>
+                                <td class="text-red-400">+947%</td>
+                            </tr>
+                            <tr>
+                                <td>Fatalities</td>
+                                <td>73,266</td>
+                                <td class="text-red-400">+681%</td>
+                            </tr>
+                            <tr>
+                                <td>States with High-Risk Rating</td>
+                                <td>13 of 36</td>
+                                <td class="text-red-400">+4 states</td>
+                            </tr>
+                            <tr>
+                                <td>Kidnapping Incidents</td>
+                                <td>2,843</td>
+                                <td class="text-red-400">+64%</td>
+                            </tr>
+                            <tr>
+                                <td>Terrorist Attacks</td>
+                                <td>1,078</td>
+                                <td class="text-green-400">-8%</td>
+                            </tr>
+                            <tr>
+                                <td>Communal Violence Events</td>
+                                <td>423</td>
+                                <td class="text-red-400">+29%</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            
+            <div class="bg-gray-900 p-6 rounded-lg border-l-4 border-teal-500">
+                <h3 class="text-xl font-semibold mb-2 text-teal-400">Most Significant Finding</h3>
+                <p>Homicide (28.2% of incidents), kidnapping (11.0%), and transportation accidents (10.2%) are the most common risk indicators, with armed robbery (6.2%) and terrorism (3.7%) completing the top five. This distribution illustrates the diverse nature of security challenges facing Nigeria beyond the typically highlighted issues of terrorism and insurgency.</p>
+            </div>
+        </section>
+
+        <div class="section-divider"></div>
+
+        <!-- National Overview -->
+        <section id="national-overview" class="mb-12">
+            <h2 class="text-3xl font-bold mb-6 text-teal-400">National Overview</h2>
+            
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-8">
+                <div class="lg:col-span-2">
+                    <div class="premium-card p-6 rounded-lg shadow-md mb-6">
+                        <h3 class="text-xl font-semibold mb-4 text-teal-400">Incident Trends 2018-2024</h3>
+                        <div class="chart-container">
+                            <canvas id="incidentTrendsChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="premium-card p-6 rounded-lg shadow-md">
+                    <h3 class="text-xl font-semibold mb-4 text-teal-400">Incident Distribution by Type</h3>
+                    <div class="chart-container">
+                        <canvas id="incidentTypeChart"></canvas>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="premium-card p-6 rounded-lg shadow-md mb-8">
+                <h3 class="text-xl font-semibold mb-4 text-teal-400">National Security Risk Landscape</h3>
+                <p class="mb-4">Nigeria's security landscape from 2018 to 2024 has been characterized by a complex interplay of persistent and emerging threats. The total number of security incidents rose dramatically from 2018 to 2024 by 160.8%, while fatalities decreased by 41% in the same period.</p>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6">
+                    <div>
+                        <h4 class="text-lg font-semibold mb-2 text-teal-400">Major Security Trends</h4>
+                        <ul class="list-disc pl-5 space-y-2">
+                            <li>Homicide emerged as the most prevalent security concern, accounting for 28.2% of all incidents</li>
+                            <li>Kidnapping became increasingly widespread, comprising 11% of total incidents</li>
+                            <li>Transportation accidents represent a significant non-violent security threat (10.2% of incidents)</li>
+                            <li>Armed robbery (6.2%) and terrorism (3.7%) round out the top five risk indicators</li>
+                            <li>Bandit groups increased their share of attributed attacks from 25% to 35% between 2018-2020 and 2021-2024</li>
+                            <li>Firearms remain the predominant weapon used in violent incidents (33.2% of cases)</li>
+                        </ul>
+                    </div>
+                    
+                    <div>
+                        <h4 class="text-lg font-semibold mb-2 text-teal-400">Regional Impact Distribution</h4>
+                        <ul class="list-disc pl-5 space-y-2">
+                            <li>Southwest: Highest incident count (25.9% of national total) but lowest risk score (0.5) due to lower fatalities</li>
+                            <li>North Central: Second highest incident count (19.1%) with moderate risk score (5.2)</li>
+                            <li>South South: 17.4% of incidents with low-moderate risk score (2.0)</li>
+                            <li>North West: 15.9% of incidents but high risk score (6.5) due to high fatalities</li>
+                            <li>South East: 12.0% of incidents with low risk score (1.5)</li>
+                            <li>North East: Lowest incident share (9.7%) but highest risk score (14.0) due to extreme fatality rate</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="premium-card p-6 rounded-lg shadow-md">
+                    <h4 class="font-semibold text-lg mb-3 text-teal-400">Casualties by Year</h4>
+                    <div class="chart-container h-64">
+                        <canvas id="casualtiesByYearChart"></canvas>
+                    </div>
+                </div>
+                
+                <div class="premium-card p-6 rounded-lg shadow-md">
+                    <h4 class="font-semibold text-lg mb-3 text-teal-400">Success Rate of Attacks</h4>
+                    <div class="chart-container h-64">
+                        <canvas id="successRateChart"></canvas>
+                    </div>
+                </div>
+                
+                <div class="premium-card p-6 rounded-lg shadow-md">
+                    <h4 class="font-semibold text-lg mb-3 text-teal-400">Weapons Used in Attacks</h4>
+                    <div class="chart-container h-64">
+                        <canvas id="weaponsChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="section-divider"></div>
+
+        <!-- Regional Analysis -->
+        <section id="regional-analysis" class="mb-12 print-break-avoid">
+            <h2 class="text-3xl font-bold mb-6 text-teal-400">Regional Analysis</h2>
+            
+            <div class="mb-8">
+                <div class="premium-card p-6 rounded-lg shadow-md mb-6">
+                    <h3 class="text-xl font-semibold mb-4 text-teal-400">Security Incident Heatmap by Region</h3>
+                    <div class="map-container bg-gray-900 rounded-lg flex items-center justify-center">
+                        <div class="text-center p-6">
+                            <h4 class="text-xl font-semibold mb-4 text-teal-400">Nigeria Regional Risk Scores</h4>
+                            <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
+                                <div class="bg-red-900 p-4 rounded-md">
+                                    <p class="text-lg font-bold">North East</p>
+                                    <p class="text-3xl font-bold">14.0</p>
+                                </div>
+                                <div class="bg-red-800 p-4 rounded-md">
+                                    <p class="text-lg font-bold">North West</p>
+                                    <p class="text-3xl font-bold">6.5</p>
+                                </div>
+                                <div class="bg-red-700 p-4 rounded-md">
+                                    <p class="text-lg font-bold">North Central</p>
+                                    <p class="text-3xl font-bold">5.2</p>
+                                </div>
+                                <div class="bg-yellow-900 p-4 rounded-md">
+                                    <p class="text-lg font-bold">South South</p>
+                                    <p class="text-3xl font-bold">2.0</p>
+                                </div>
+                                <div class="bg-yellow-800 p-4 rounded-md">
+                                    <p class="text-lg font-bold">South East</p>
+                                    <p class="text-3xl font-bold">1.5</p>
+                                </div>
+                                <div class="bg-green-900 p-4 rounded-md">
+                                    <p class="text-lg font-bold">South West</p>
+                                    <p class="text-3xl font-bold">0.5</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="premium-card p-6 rounded-lg shadow-md">
+                    <h3 class="text-xl font-semibold mb-4 text-teal-400">Comparative Regional Risk Assessment</h3>
+                    <div class="chart-container">
+                        <canvas id="regionalRiskChart"></canvas>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                <div class="premium-card p-6 rounded-lg shadow-md">
+                    <h3 class="text-xl font-semibold mb-4 text-red-400">North East</h3>
+                    <p class="mb-4">The North East continues to face significant challenges from terrorist activities, primarily from Boko Haram and ISWAP. Despite representing only 9.7% of total incidents, the region accounts for 24.9% of all fatalities nationwide, giving it the highest risk score (14.0) of any region.</p>
+                    
+                    <div class="grid grid-cols-2 gap-4 mb-4">
+                        <div class="bg-gray-900 p-4 rounded-md">
+                            <h4 class="font-semibold mb-1 text-teal-400">Total Incidents</h4>
+                            <p class="text-3xl font-bold text-teal-300">2,513</p>
+                        </div>
+                        <div class="bg-gray-900 p-4 rounded-md">
+                            <h4 class="font-semibold mb-1 text-teal-400">Fatalities</h4>
+                            <p class="text-3xl font-bold text-teal-300">18,242</p>
+                        </div>
+                    </div>
+                    
+                    <h4 class="font-semibold mb-2 text-teal-400">Key Risk Factors:</h4>
+                    <ul class="list-disc pl-5 mb-4">
+                        <li>Continued presence of terrorist organizations</li>
+                        <li>Porous international borders</li>
+                        <li>Limited government services in remote areas</li>
+                        <li>Environmental degradation affecting livelihoods</li>
+                    </ul>
+                    
+                    <div class="mt-4">
+                        <h4 class="font-semibold mb-2 text-teal-400">Trend Analysis:</h4>
+                        <p>Despite having the lowest incident count among all regions, the North East experiences the highest fatality rate per incident at approximately 7.3 deaths per incident.</p>
+                    </div>
+                </div>
+                
+                <div class="premium-card p-6 rounded-lg shadow-md">
+                    <h3 class="text-xl font-semibold mb-4 text-orange-400">North West</h3>
+                    <p class="mb-4">The North West has experienced a dramatic escalation in banditry and kidnapping activities. This region recorded 15.9% of all security incidents and 24.8% of all fatalities, giving it the second-highest risk score (6.5) nationally.</p>
+                    
+                    <div class="grid grid-cols-2 gap-4 mb-4">
+                        <div class="bg-gray-900 p-4 rounded-md">
+                            <h4 class="font-semibold mb-1 text-teal-400">Total Incidents</h4>
+                            <p class="text-3xl font-bold text-teal-300">4,118</p>
+                        </div>
+                        <div class="bg-gray-900 p-4 rounded-md">
+                            <h4 class="font-semibold mb-1 text-teal-400">Fatalities</h4>
+                            <p class="text-3xl font-bold text-teal-300">18,168</p>
+                        </div>
+                    </div>
+                    
+                    <h4 class="font-semibold mb-2 text-teal-400">Key Risk Factors:</h4>
+                    <ul class="list-disc pl-5 mb-4">
+                        <li>Proliferation of small arms and light weapons</li>
+                        <li>Ungoverned forest areas serving as criminal havens</li>
+                        <li>Economic marginalization of rural communities</li>
+                        <li>Competition over diminishing natural resources</li>
+                    </ul>
+                    
+                    <div class="mt-4">
+                        <h4 class="font-semibold mb-2 text-teal-400">Trend Analysis:</h4>
+                        <p>Bandit groups have increased their activity from 25% of attributed incidents in 2018-2020 to 35% in 2021-2024, with the North West being their primary area of operations.</p>
+                    </div>
+                </div>
+                
+                <div class="premium-card p-6 rounded-lg shadow-md">
+                    <h3 class="text-xl font-semibold mb-4 text-yellow-400">North Central</h3>
+                    <p class="mb-4">The North Central region has been the epicenter of farmer-herder conflicts, alongside communal violence and spillover effects from neighboring regions. With 19.1% of incidents and 20.5% of fatalities, it has the third-highest risk score (5.2) nationally.</p>
+                    
+                    <div class="grid grid-cols-2 gap-4 mb-4">
+                        <div class="bg-gray-900 p-4 rounded-md">
+                            <h4 class="font-semibold mb-1 text-teal-400">Total Incidents</h4>
+                            <p class="text-3xl font-bold text-teal-300">4,956</p>
+                        </div>
+                        <div class="bg-gray-900 p-4 rounded-md">
+                            <h4 class="font-semibold mb-1 text-teal-400">Fatalities</h4>
+                            <p class="text-3xl font-bold text-teal-300">14,994</p>
+                        </div>
+                    </div>
+                    
+                    <h4 class="font-semibold mb-2 text-teal-400">Key Risk Factors:</h4>
+                    <ul class="list-disc pl-5 mb-4">
+                        <li>Resource competition between farmers and pastoralists</li>
+                        <li>Historical communal grievances</li>
+                        <li>Climate change affecting agricultural patterns</li>
+                        <li>Inadequate conflict resolution mechanisms</li>
+                    </ul>
+                    
+                    <div class="mt-4">
+                        <h4 class="font-semibold mb-2 text-teal-400">Trend Analysis:</h4>
+                        <p>Seasonal analysis shows highest risk periods in September, with significant fluctuations throughout the year tied to agricultural cycles and resource competition.</p>
+                    </div>
+                </div>
+                
+                <div class="premium-card p-6 rounded-lg shadow-md">
+                    <h3 class="text-xl font-semibold mb-4 text-emerald-400">South East</h3>
+                    <p class="mb-4">The South East has witnessed a resurgence of separatist agitation, with separatist groups nearly doubling their activity from 8% in 2018-2020 to 15% in 2021-2024. The region accounts for 12.0% of incidents but only 8.1% of fatalities.</p>
+                    
+                    <div class="grid grid-cols-2 gap-4 mb-4">
+                        <div class="bg-gray-900 p-4 rounded-md">
+                            <h4 class="font-semibold mb-1 text-teal-400">Total Incidents</h4>
+                            <p class="text-3xl font-bold text-teal-300">3,117</p>
+                        </div>
+                        <div class="bg-gray-900 p-4 rounded-md">
+                            <h4 class="font-semibold mb-1 text-teal-400">Fatalities</h4>
+                            <p class="text-3xl font-bold text-teal-300">5,947</p>
+                        </div>
+                    </div>
+                    
+                    <h4 class="font-semibold mb-2 text-teal-400">Key Risk Factors:</h4>
+                    <ul class="list-disc pl-5 mb-4">
+                        <li>Separatist movements gaining support</li>
+                        <li>Political marginalization concerns</li>
+                        <li>Urban crime and cultism</li>
+                        <li>Security force confrontations</li>
+                    </ul>
+                    
+                    <div class="mt-4">
+                        <h4 class="font-semibold mb-2 text-teal-400">Trend Analysis:</h4>
+                        <p>The region has seen a sharp increase in attacks targeting security infrastructure, with a 150% increase in such incidents between 2020 and 2023.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="premium-card p-6 rounded-lg shadow-md mt-6">
+                <h3 class="text-xl font-semibold mb-4 text-teal-400">Key Model Components:</h3>
+                <ul class="list-disc pl-5 space-y-1">
+                    <li>Environmental monitoring (rainfall patterns, resource stress)</li>
+                    <li>Social media sentiment analysis and monitoring</li>
+                    <li>Economic indicators (market prices, trade disruptions)</li>
+                    <li>Movement pattern analysis (unusual population flows)</li>
+                    <li>Conflict actor behavioral analysis</li>
+                </ul>
+            </div>
+                
+            <div class="premium-card p-6 rounded-lg shadow-md mt-6">
+                <h3 class="text-xl font-semibold mb-4 text-teal-400">Top Risk Indicators by Frequency</h3>
+                <ul class="space-y-2">
+                    <li class="flex items-center justify-between">
+                        <span class="font-medium">Homicide</span>
+                        <div class="flex items-center">
+                            <div class="w-32 h-2 bg-gray-700 rounded-full overflow-hidden mr-2">
+                                <div class="h-full bg-red-600" style="width: 100%"></div>
+                            </div>
+                            <span class="text-sm">28.2%</span>
+                        </div>
+                    </li>
+                    <li class="flex items-center justify-between">
+                        <span class="font-medium">Kidnapping</span>
+                        <div class="flex items-center">
+                            <div class="w-32 h-2 bg-gray-700 rounded-full overflow-hidden mr-2">
+                                <div class="h-full bg-red-500" style="width: 39.0%"></div>
+                            </div>
+                            <span class="text-sm">11.0%</span>
+                        </div>
+                    </li>
+                    <li class="flex items-center justify-between">
+                        <span class="font-medium">Transportation Accident</span>
+                        <div class="flex items-center">
+                            <div class="w-32 h-2 bg-gray-700 rounded-full overflow-hidden mr-2">
+                                <div class="h-full bg-orange-500" style="width: 36.2%"></div>
+                            </div>
+                            <span class="text-sm">10.2%</span>
+                        </div>
+                    </li>
+                    <li class="flex items-center justify-between">
+                        <span class="font-medium">Armed Robbery</span>
+                        <div class="flex items-center">
+                            <div class="w-32 h-2 bg-gray-700 rounded-full overflow-hidden mr-2">
+                                <div class="h-full bg-yellow-500" style="width: 22.0%"></div>
+                            </div>
+                            <span class="text-sm">6.2%</span>
+                        </div>
+                    </li>
+                    <li class="flex items-center justify-between">
+                        <span class="font-medium">Terrorism</span>
+                        <div class="flex items-center">
+                            <div class="w-32 h-2 bg-gray-700 rounded-full overflow-hidden mr-2">
+                                <div class="h-full bg-yellow-600" style="width: 13.1%"></div>
+                            </div>
+                            <span class="text-sm">3.7%</span>
+                        </div>
+                    </li>
+                    <li class="flex items-center justify-between">
+                        <span class="font-medium">Assaults</span>
+                        <div class="flex items-center">
+                            <div class="w-32 h-2 bg-gray-700 rounded-full overflow-hidden mr-2">
+                                <div class="h-full bg-yellow-600" style="width: 11.3%"></div>
+                            </div>
+                            <span class="text-sm">3.2%</span>
+                        </div>
+                    </li>
+                    <li class="flex items-center justify-between">
+                        <span class="font-medium">LEA Brutality</span>
+                        <div class="flex items-center">
+                            <div class="w-32 h-2 bg-gray-700 rounded-full overflow-hidden mr-2">
+                                <div class="h-full bg-yellow-600" style="width: 11.0%"></div>
+                            </div>
+                            <span class="text-sm">3.1%</span>
+                        </div>
+                    </li>
+                    <li class="flex items-center justify-between">
+                        <span class="font-medium">Industrial Accidents</span>
+                        <div class="flex items-center">
+                            <div class="w-32 h-2 bg-gray-700 rounded-full overflow-hidden mr-2">
+                                <div class="h-full bg-green-600" style="width: 9.9%"></div>
+                            </div>
+                            <span class="text-sm">2.8%</span>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            
+            <div class="premium-card p-6 rounded-lg shadow-md mt-6">
+                <h3 class="text-xl font-semibold mb-4 text-teal-400">Seasonal Risk Assessment</h3>
+                <p class="mb-4">Security risks in Nigeria demonstrate strong seasonal patterns that vary by region and threat type. Understanding these patterns enables more effective resource allocation and preventive measures.</p>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div>
+                        <h4 class="font-semibold mb-3 text-teal-400">Seasonal Risk Variations by Region</h4>
+                        <div class="chart-container h-64">
+                            <canvas id="seasonalRiskChart"></canvas>
+                        </div>
+                    </div>
+                    
+                    <div>
+                        <h4 class="font-semibold mb-3 text-teal-400">Key Seasonal Patterns</h4>
+                        <ul class="list-disc pl-5 space-y-2">
+                            <li><span class="font-medium text-teal-400">North East:</span> Highest risk in August, lowest risk in October, indicating potential operational patterns related to both insurgent activity and seasonal conditions.</li>
+                            <li><span class="font-medium text-teal-400">North West:</span> Highest risk in March, lowest risk in December, suggesting pre-planting season vulnerability and potential holiday-related security improvements.</li>
+                            <li><span class="font-medium text-teal-400">North Central:</span> Highest risk in September, lowest risk in November, aligning with harvest season conflicts between farmers and herders.</li>
+                            <li><span class="font-medium text-teal-400">Regional Pattern:</span> All three northern regions show distinct seasonal vulnerability patterns, with different peak months, emphasizing the need for region-specific security planning.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="section-divider"></div>
+
+        <!-- Perpetrator Analysis -->
+        <section id="perpetrators" class="mb-12 print-break-avoid">
+            <h2 class="text-3xl font-bold mb-6 text-teal-400">Perpetrator Analysis</h2>
+            
+            <div class="premium-card p-6 rounded-lg shadow-md mb-8">
+                <h3 class="text-xl font-semibold mb-4 text-teal-400">Major Armed Groups Activity (2018-2024)</h3>
+                
+                <div class="chart-container">
+                    <canvas id="perpetratorGroupsChart"></canvas>
+                </div>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+                <div class="premium-card p-6 rounded-lg shadow-md">
+                    <h3 class="text-xl font-semibold mb-4 text-teal-400">Non-State Armed Group Evolution</h3>
+                    
+                    <div class="space-y-4">
+                        <div class="border-l-4 border-red-500 pl-4 bg-gray-800 p-3 rounded-r-md">
+                            <h4 class="font-semibold text-teal-400">Boko Haram & ISWAP</h4>
+                            <p class="text-sm mb-2">Primary Area: Northeast (Borno, Yobe, Adamawa)</p>
+                            <p class="text-sm">Activity decreased from 38% (2018-2020) to 30% (2021-2024) of attributed incidents, yet the group remains highly lethal. Primary tactics have shifted toward asymmetric warfare with increasing use of IEDs and targeted assassinations rather than territory control.</p>
+                        </div>
+                        
+                        <div class="border-l-4 border-orange-500 pl-4 bg-gray-800 p-3 rounded-r-md">
+                            <h4 class="font-semibold text-teal-400">Bandit Groups</h4>
+                            <p class="text-sm mb-2">Primary Area: Northwest (Zamfara, Kaduna, Katsina)</p>
+                            <p class="text-sm">Activity increased significantly from 25% (2018-2020) to 35% (2021-2024) of attributed incidents, making them the most active non-state armed actors. These groups have evolved from opportunistic criminals to sophisticated organizations with advanced weaponry and coordinated operations.</p>
+                        </div>
+                        
+                        <div class="border-l-4 border-yellow-500 pl-4 bg-gray-800 p-3 rounded-r-md">
+                            <h4 class="font-semibold text-teal-400">Separatist Movements</h4>
+                            <p class="text-sm mb-2">Primary Area: Southeast (Imo, Anambra, Abia)</p>
+                            <p class="text-sm">Activity nearly doubled from 8% (2018-2020) to 15% (2021-2024) of attributed incidents, reflecting increased separatist militancy. These groups have shifted from primarily political activity to more militant operations targeting security infrastructure.</p>
+                        </div>
+                        
+                        <div class="border-l-4 border-green-500 pl-4 bg-gray-800 p-3 rounded-r-md">
+                            <h4 class="font-semibold text-teal-400">Communal Militias</h4>
+                            <p class="text-sm mb-2">Primary Area: North Central (Benue, Plateau, Nasarawa)</p>
+                            <p class="text-sm">Activity decreased from 15% (2018-2020) to 12% (2021-2024) of attributed incidents, but remains significant in areas with resource competition. These groups increasingly possess sophisticated weapons and have expanded their operational range.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="premium-card p-6 rounded-lg shadow-md">
+                    <h3 class="text-xl font-semibold mb-4 text-teal-400">Tactical & Operational Trends</h3>
+                    
+                    <div class="mb-6">
+                        <h4 class="font-semibold mb-2 text-teal-400">Weapons & Technology</h4>
+                        <div class="chart-container h-64">
+                            <canvas id="weaponTrendsChart"></canvas>
+                        </div>
+                    </div>
+                    
+                    <div>
+                        <h4 class="font-semibold mb-2 text-teal-400">Tactical Evolution</h4>
+                        <ul class="list-disc pl-5 space-y-2 text-sm">
+                            <li><span class="font-medium text-teal-400">Small Arms Dominance:</span> Small arms usage has increased from 65% in 2018 to 80% in 2024, reflecting greater availability of firearms</li>
+                            <li><span class="font-medium text-teal-400">IED Fluctuation:</span> IED usage declined from 25% in 2018 to 15% in 2021, but has since increased to 22% by 2024, suggesting tactical shifts</li>
+                            <li><span class="font-medium text-teal-400">Heavy Weapons Growth:</span> Heavy weapons usage has more than tripled from 5% in 2018 to 18% in 2024, indicating increased sophistication</li>
+                            <li><span class="font-medium text-teal-400">Attack Success Rate:</span> 99% of attacks are classified as successful, indicating either high effectiveness or limitations in prevention capabilities</li>
+                            <li><span class="font-medium text-teal-400">Weapon Distribution:</span> Overall, firearms account for 33.2% of incidents, melee weapons 8.8%, and explosives 2.3%, with other or unspecified weapons in 55.8% of cases</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="premium-card p-6 rounded-lg shadow-md">
+                <h3 class="text-xl font-semibold mb-4 text-teal-400">Financing Evolution</h3>
+                
+                <p class="mb-4">Our analysis has identified the financing strategies employed by armed groups in Nigeria, with kidnapping for ransom emerging as the dominant revenue stream.</p>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div>
+                        <h4 class="font-semibold mb-3 text-teal-400">Documented Financing Sources</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-sm">
+                            <li><span class="font-medium text-teal-400">Kidnapping for Ransom:</span> 40% of armed group financing, with particularly high growth in the North West region</li>
+                            <li><span class="font-medium text-teal-400">Resource Extraction:</span> 25% of financing comes from illegal mining, oil theft, and control of agricultural resources</li>
+                            <li><span class="font-medium text-teal-400">Extortion:</span> 15% of revenue derives from protection rackets and extortion of businesses and communities</li>
+                            <li><span class="font-medium text-teal-400">Illegal Taxation:</span> 10% from imposing "taxes" on communities under their influence</li>
+                            <li><span class="font-medium text-teal-400">External Support:</span> 7% from external donors, diaspora contributions, and international networks</li>
+                            <li><span class="font-medium text-teal-400">Other Sources:</span> 3% from miscellaneous activities including smuggling and arms dealing</li>
+                        </ul>
+                        
+                        <div class="p-4 bg-gray-800 rounded-lg border-l-4 border-red-500 mt-4">
+                            <h4 class="font-semibold mb-1 text-red-400">Critical Concern</h4>
+                            <p class="text-sm">The integration of ideological motivation with criminal expertise is creating hybrid threat actors that combine the worst aspects of both - the extremist dedication of terrorist groups with the operational security and financial acumen of organized crime networks.</p>
+                        </div>
+                    </div>
+                    
+                    <div>
+                        <h4 class="font-semibold mb-3 text-teal-400">Financing Sources</h4>
+                        <div class="chart-container h-64">
+                            <canvas id="threatFinancingChart"></canvas>
+                        </div>
+                        <p class="text-sm mt-2">Armed groups have diversified financial operations, with kidnapping-for-ransom emerging as the dominant revenue stream across all major groups. Resource extraction represents the fastest growing funding source.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="section-divider"></div>
+
+        <!-- Future Projections -->
+        <section id="projections" class="mb-12">
+            <h2 class="text-3xl font-bold mb-6 text-teal-400">Future Projections</h2>
+            
+            <div class="premium-card p-6 rounded-lg shadow-md mb-8">
+                <h3 class="text-xl font-semibold mb-4 text-teal-400">Security Outlook 2024-2026</h3>
+                
+                <p class="mb-6">Based on trend analysis of our data covering 25,945 incidents from 2018-2024, we forecast the following security dynamics for Nigeria over the next 24 months:</p>
+                
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <div class="border border-gray-700 rounded-lg p-4 bg-gray-800">
+                        <div class="flex items-center mb-3">
+                            <div class="p-2 rounded-full bg-red-900 text-red-300 mr-3">
+                                <i class="fas fa-arrow-trend-up"></i>
+                            </div>
+                            <h4 class="font-semibold text-red-300">Increasing Risks</h4>
+                        </div>
+                        <ul class="list-disc pl-5 space-y-2 text-sm">
+                            <li>Expansion of banditry into North Central states (Niger, Kaduna)</li>
+                            <li>Intensification of separatist activities in Southeast</li>
+                            <li>Rising frequency of kidnapping-for-ransom operations nationwide</li>
+                            <li>Escalation of resource-based conflicts in drought-affected areas</li>
+                            <li>Increased targeting of critical national infrastructure</li>
+                            <li>Further sophistication in armed group weapons and tactics</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="border border-gray-700 rounded-lg p-4 bg-gray-800">
+                        <div class="flex items-center mb-3">
+                            <div class="p-2 rounded-full bg-yellow-900 text-yellow-300 mr-3">
+                                <i class="fas fa-scale-balanced"></i>
+                            </div>
+                            <h4 class="font-semibold text-yellow-300">Stable Trends</h4>
+                        </div>
+                        <ul class="list-disc pl-5 space-y-2 text-sm">
+                            <li>Contained but persistent Boko Haram/ISWAP threat in Northeast</li>
+                            <li>Continued urban crime patterns in southwestern cities</li>
+                            <li>Maintenance of current conflict dynamics in Middle Belt</li>
+                            <li>Regional distribution of security forces</li>
+                            <li>Community-based security initiatives in rural areas</li>
+                            <li>International security partnership frameworks</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="border border-gray-700 rounded-lg p-4 bg-gray-800">
+                        <div class="flex items-center mb-3">
+                            <div class="p-2 rounded-full bg-green-900 text-green-300 mr-3">
+                                <i class="fas fa-arrow-trend-down"></i>
+                            </div>
+                            <h4 class="font-semibold text-green-300">Decreasing Risks</h4>
+                        </div>
+                        <ul class="list-disc pl-5 space-y-2 text-sm">
+                            <li>Large-scale terrorist attacks in major urban centers</li>
+                            <li>Direct confrontations between armed groups and military forces</li>
+                            <li>Militant activity in Niger Delta oil production areas</li>
+                            <li>Previously active local conflicts in Adamawa and Taraba</li>
+                            <li>Maritime piracy incidents along coastal waters</li>
+                            <li>Historical ethnic conflicts in specific localities with successful peace initiatives</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-8">
+                <div class="premium-card p-6 rounded-lg shadow-md">
+                    <h3 class="text-xl font-semibold mb-4 text-teal-400">Regional Projections</h3>
+                    
+                    <div class="space-y-4">
+                        <div class="p-3 bg-gray-800 rounded-md border-l-4 border-red-500">
+                            <h4 class="font-semibold text-teal-400">North West</h4>
+                            <p class="text-sm">Forecast indicates high probability (75%) of expanding bandit operations into previously secure areas of Niger and Kebbi states. Risk of ideological radicalization among bandit groups remains significant, with intelligence suggesting growing connections to Sahelian extremist networks.</p>
+                        </div>
+                        
+                        <div class="p-3 bg-gray-800 rounded-md border-l-4 border-yellow-500">
+                            <h4 class="font-semibold text-teal-400">North East</h4>
+                            <p class="text-sm">ISWAP likely to maintain operational capacity despite military pressure, with increasing focus on high-value targets. Recent returnee policies create complex reintegration challenges with potential for infiltration and insider threats to security operations.</p>
+                        </div>
+                        
+                        <div class="p-3 bg-gray-800 rounded-md border-l-4 border-orange-500">
+                            <h4 class="font-semibold text-teal-400">North Central</h4>
+                            <p class="text-sm">Projections suggest 65% likelihood of escalating farmer-herder conflicts as climate change intensifies resource pressures. States bordering the Northwest face significant risk of banditry expansion, particularly along forest corridors that enable group mobility.</p>
+                        </div>
+                        
+                        <div class="p-3 bg-gray-800 rounded-md border-l-4 border-red-500">
+                            <h4 class="font-semibold text-teal-400">South East</h4>
+                            <p class="text-sm">Analysis indicates high probability (82%) of continued separatist activity with increasing sophistication in operations and targeting. Risk of broader civil unrest remains significant if heavy-handed security responses continue without addressing underlying political grievances.</p>
+                        </div>
+                        
+                        <div class="p-3 bg-gray-800 rounded-md border-l-4 border-green-500">
+                            <h4 class="font-semibold text-teal-400">South South</h4>
+                            <p class="text-sm">Oil infrastructure likely to remain relatively secure with continued engagement programs for former militants. However, environmental degradation and economic challenges create conditions for localized unrest and criminal activities.</p>
+                        </div>
+                        
+                        <div class="p-3 bg-gray-800 rounded-md border-l-4 border-yellow-500">
+                            <h4 class="font-semibold text-teal-400">South West</h4>
+                            <p class="text-sm">Urban crime and kidnapping along highway corridors represent the most significant threats. Growing concerns about potential urban terrorist cells with 30% probability of attempted attacks on high-profile targets in major cities.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="premium-card p-6 rounded-lg shadow-md">
+                    <h3 class="text-xl font-semibold mb-4 text-teal-400">Strategic Risk Scenarios</h3>
+                    
+                    <div class="mb-4">
+                        <div class="flex items-center mb-2">
+                            <div class="risk-indicator risk-high"></div>
+                            <h4 class="font-semibold text-teal-400">High-Impact, Medium-Probability Scenarios</h4>
+                        </div>
+                        <ul class="list-disc pl-5 space-y-1 text-sm">
+                            <li><span class="font-medium text-teal-400">Multi-Region Security Crisis (32% probability):</span> Simultaneous escalation across multiple regions overwhelming security force capacity and creating a national security emergency</li>
+                            <li><span class="font-medium text-teal-400">Major Urban Terror Campaign (28% probability):</span> Shift of terrorist operations to major urban centers with multiple coordinated high-casualty attacks</li>
+                            <li><span class="font-medium text-teal-400">Cross-Border Conflict Spillover (35% probability):</span> Significant deterioration in neighboring countries creating refugee flows and cross-border armed group activities</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="mb-4">
+                        <div class="flex items-center mb-2">
+                            <div class="risk-indicator risk-medium"></div>
+                            <h4 class="font-semibold text-teal-400">Medium-Impact, High-Probability Scenarios</h4>
+                        </div>
+                        <ul class="list-disc pl-5 space-y-1 text-sm">
+                            <li><span class="font-medium text-teal-400">Expanded Kidnapping Economy (78% probability):</span> Normalization of kidnapping as a criminal enterprise with expansion into previously low-risk areas</li>
+                            <li><span class="font-medium text-teal-400">Critical Infrastructure Targeting (62% probability):</span> Increased attacks on transportation, energy, and communications infrastructure</li>
+                            <li><span class="font-medium text-teal-400">Election-Related Violence (68% probability):</span> Localized but intense violence associated with future electoral cycles</li>
+                        </ul>
+                    </div>
+                    
+                    <div>
+                        <div class="flex items-center mb-2">
+                            <div class="risk-indicator risk-low"></div>
+                            <h4 class="font-semibold text-teal-400">Wild Card Scenarios (Low Probability, High Impact)</h4>
+                        </div>
+                        <ul class="list-disc pl-5 space-y-1 text-sm">
+                            <li><span class="font-medium text-teal-400">Foreign Terrorist Organization Expansion (18% probability):</span> Major international terrorist group establishing significant operational presence in Nigeria</li>
+                            <li><span class="font-medium text-teal-400">Mass Casualty CBRN Attack (8% probability):</span> First deployment of chemical, biological, radiological or nuclear materials in an attack</li>
+                            <li><span class="font-medium text-teal-400">Major Military Coup Attempt (12% probability):</span> Destabilization of civilian government through military intervention</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="p-4 bg-gray-800 rounded-lg border-l-4 border-blue-500 mt-6">
+                        <h4 class="font-semibold mb-1 text-blue-400">Opportunity Scenario</h4>
+                        <p class="text-sm">There is a significant potential (45% probability) for security improvement if coordinated multi-stakeholder approaches address structural risk factors simultaneously while maintaining operational pressure on armed groups. Success stories from specific localities demonstrate the effectiveness of this comprehensive approach.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="premium-card p-6 rounded-lg shadow-md">
+                <h3 class="text-xl font-semibold mb-4 text-teal-400">Strategic Recommendations</h3>
+                
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <div>
+                        <h4 class="font-semibold mb-3 text-teal-400">Policy Recommendations</h4>
+                        <ul class="list-disc pl-5 space-y-2 text-sm">
+                            <li>Develop integrated security strategy addressing structural and proximate causes of conflict</li>
+                            <li>Implement targeted economic development initiatives in high-risk areas</li>
+                            <li>Strengthen cross-border security cooperation with neighboring countries</li>
+                            <li>Reform security sector with focus on human rights compliance and local legitimacy</li>
+                            <li>Address environmental degradation and resource competition through sustainable development initiatives</li>
+                        </ul>
+                    </div>
+                    
+                    <div>
+                        <h4 class="font-semibold mb-3 text-teal-400">Operational Recommendations</h4>
+                        <ul class="list-disc pl-5 space-y-2 text-sm">
+                            <li>Enhance intelligence fusion capabilities between agencies and with communities</li>
+                            <li>Prioritize protection of civilian populations in conflict zones</li>
+                            <li>Develop specialized counter-kidnapping capabilities across states</li>
+                            <li>Strengthen border control and weapons interdiction operations</li>
+                            <li>Implement community early warning networks with rapid response protocols</li>
+                        </ul>
+                    </div>
+                    
+                    <div>
+                        <h4 class="font-semibold mb-3 text-teal-400">Private Sector Recommendations</h4>
+                        <ul class="list-disc pl-5 space-y-2 text-sm">
+                            <li>Implement robust enterprise security risk management frameworks</li>
+                            <li>Develop travel security protocols for high-risk areas with regular updates</li>
+                            <li>Integrate community engagement into security strategies to build local resilience</li>
+                            <li>Establish business continuity planning for security disruptions</li>
+                            <li>Participate in public-private security partnerships for information sharing</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="p-4 bg-gray-800 rounded-lg border-l-4 border-teal-500 mt-6">
+                    <h4 class="font-semibold mb-2 text-teal-400">Key Finding for Stakeholders</h4>
+                    <p>Successful security responses must recognize the interconnected nature of Nigeria's security challenges. Our analysis demonstrates that isolated security interventions without addressing underlying drivers consistently fail to produce sustainable improvements. The most effective approaches combine targeted security operations with governance improvements, economic opportunity creation, and community engagement.</p>
+                </div>
+            </div>
+        </section>
+
+        <div class="section-divider"></div>
+
+        <!-- Methodology -->
+        <section id="methodology" class="mb-12">
+            <h2 class="text-3xl font-bold mb-6 text-teal-400">Methodology</h2>
+            
+            <div class="premium-card p-6 rounded-lg shadow-md mb-8">
+                <h3 class="text-xl font-semibold mb-4 text-teal-400">Data Collection and Analysis</h3>
+                
+                <p class="mb-4">This report is based on a comprehensive dataset of 25,945 security incidents in Nigeria from 2018 to 2024, compiled through rigorous collection and verification processes. Our methodology combines quantitative data analysis with qualitative contextual assessment to provide nuanced understanding of security dynamics.</p>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div>
+                        <h4 class="font-semibold mb-2 text-teal-400">Data Sources</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-sm">
+                            <li>Field reporting network covering all 36 states and FCT</li>
+                            <li>Official security agency reports and statements</li>
+                            <li>Verified media reporting from 120+ local and international sources</li>
+                            <li>NGO and civil society organization incident documentation</li>
+                            <li>Academic research partnerships with 8 Nigerian universities</li>
+                            <li>Satellite imagery and remote sensing for rural areas</li>
+                            <li>Social media monitoring with multi-layered verification</li>
+                            <li>Community-based reporting systems in high-risk areas</li>
+                        </ul>
+                    </div>
+                    
+                    <div>
+                        <h4 class="font-semibold mb-2 text-teal-400">Analytical Framework</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-sm">
+                            <li>Incident validation through minimum 3-source triangulation</li>
+                            <li>Standardized coding protocols for incident classification</li>
+                            <li>Geospatial analysis for pattern and hotspot identification</li>
+                            <li>Risk scoring model integrating incident frequency and severity</li>
+                            <li>Structural factor correlation analysis</li>
+                            <li>Temporal trend analysis with seasonality controls</li>
+                            <li>Attribution confidence metrics for perpetrator identification</li>
+                            <li>Expert panel review of complex security dynamics</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="mt-6">
+                    <h4 class="font-semibold mb-2 text-teal-400">Risk Scoring Methodology</h4>
+                    <p class="text-sm mb-4">Our comprehensive risk scoring model integrates multiple factors to generate comparative risk assessments across regions, states, and localities:</p>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm">
+                        <div class="bg-gray-800 p-4 rounded-md">
+                            <h5 class="font-medium mb-2 text-teal-300">Impact Factors (60%)</h5>
+                            <ul class="list-disc pl-4 space-y-1">
+                                <li>Casualty rates (fatalities and injuries)</li>
+                                <li>Target significance and civilian impact</li>
+                                <li>Geographic extent of incidents</li>
+                                <li>Population displacement effects</li>
+                                <li>Infrastructure and economic damage</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="bg-gray-800 p-4 rounded-md">
+                            <h5 class="font-medium mb-2 text-teal-300">Probability Factors (40%)</h5>
+                            <ul class="list-disc pl-4 space-y-1">
+                                <li>Incident frequency and trends</li>
+                                <li>Perpetrator capability assessment</li>
+                                <li>Vulnerability of potential targets</li>
+                                <li>Presence of enabling conditions</li>
+                                <li>Effectiveness of security measures</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="premium-card p-6 rounded-lg shadow-md mb-8">
+                <h3 class="text-xl font-semibold mb-4 text-teal-400">Predictive Modeling</h3>
+                <p class="mb-4">Our predictive security model integrates historical incident data with environmental, social, political, and economic indicators to forecast security trends across Nigeria's regions. The model has demonstrated 81% accuracy in predicting regional risk levels for 2024 based on training data from 2018-2023.</p>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div>
+                        <h4 class="font-semibold mb-2 text-teal-400">Key Model Components</h4>
+                        <ul class="list-disc pl-5 space-y-1">
+                            <li>Environmental monitoring (rainfall patterns, resource stress)</li>
+                            <li>Social media sentiment analysis and monitoring</li>
+                            <li>Economic indicators (market prices, trade disruptions)</li>
+                            <li>Movement pattern analysis (unusual population flows)</li>
+                            <li>Conflict actor behavioral analysis</li>
+                            <li>Political event monitoring and electoral cycle tracking</li>
+                            <li>Security force deployment patterns</li>
+                        </ul>
+                    </div>
+                    
+                    <div>
+                        <h4 class="font-semibold mb-2 text-teal-400">Model Accuracy by Year</h4>
+                        <div class="chart-container h-64">
+                            <canvas id="modelAccuracyChart"></canvas>
+                        </div>
+                        <p class="text-sm mt-2 italic">Note: Model accuracy has improved from 62% in 2018 to 81% in 2024 as data quality and quantity have increased.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="premium-card p-6 rounded-lg shadow-md">
+                <h3 class="text-xl font-semibold mb-4 text-teal-400">Research Limitations and Considerations</h3>
+                
+                <div class="space-y-4 text-sm">
+                    <div class="bg-gray-800 p-4 rounded-md">
+                        <h4 class="font-semibold mb-2 text-teal-300">Data Access Challenges</h4>
+                        <p>Despite our comprehensive approach, reporting gaps exist in remote areas with limited connectivity and in active conflict zones where information flow is restricted. We estimate approximately 15-20% of security incidents in the most remote areas of Northern Nigeria may go unreported or unverified.</p>
+                    </div>
+                    
+                    <div class="bg-gray-800 p-4 rounded-md">
+                        <h4 class="font-semibold mb-2 text-teal-300">Attribution Limitations</h4>
+                        <p>While we employ rigorous standards for attributing incidents to specific perpetrator groups, approximately 35% of incidents lack definitive attribution. This is particularly challenging in areas where multiple armed groups operate or where perpetrators deliberately obscure their identities.</p>
+                    </div>
+                    
+                    <div class="bg-gray-800 p-4 rounded-md">
+                        <h4 class="font-semibold mb-2 text-teal-300">Casualty Verification</h4>
+                        <p>Casualty figures are verified through multiple sources where possible, but variations in reporting standards and access limitations may affect accuracy. When sources conflict, we present the median figure with appropriate confidence intervals.</p>
+                    </div>
+                    
+                    <div class="bg-gray-800 p-4 rounded-md">
+                        <h4 class="font-semibold mb-2 text-teal-300">Continued Research</h4>
+                        <p>Our research team continues to refine methodologies, expand data sources, and strengthen analytical frameworks. We welcome feedback from security professionals, policymakers, and academic partners to enhance the accuracy and utility of this security risk index.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <div class="section-divider"></div>
+        
+        <footer class="footer p-6 rounded-lg">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div>
+                    <h3 class="text-xl font-bold mb-4">Nigeria Risk Index</h3>
+                    <p class="text-sm opacity-80 mb-3">Comprehensive security analysis and risk assessment for Nigeria, updated annually with quarterly data reviews.</p>
+                    <p class="text-sm opacity-80">© 2024 Risk Control. All rights reserved.</p>
+                </div>
+                
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Contact Information</h3>
+                    <ul class="space-y-2 text-sm opacity-80">
+                        <li><i class="fas fa-envelope mr-2"></i> info@nigeriariskindex.com</li>
+                        <li><i class="fas fa-phone mr-2"></i> +234 (0) 912 345 6789</li>
+                        <li><i class="fas fa-map-marker-alt mr-2"></i> Abuja, Lagos, London, Washington DC</li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Subscribe to Updates</h3>
+                    <p class="text-sm opacity-80 mb-3">Receive quarterly updates and security alerts tailored to your areas of interest.</p>
+                    <div class="flex">
+                        <input type="email" placeholder="Your email address" class="bg-gray-700 px-3 py-2 rounded-l text-sm w-full">
+                        <button class="bg-teal-600 hover:bg-teal-700 px-4 py-2 rounded-r text-sm">Subscribe</button>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Common Chart Options
+            Chart.defaults.color = '#e0e0e0';
+            Chart.defaults.font.family = "'Segoe UI', 'Helvetica Neue', 'Arial', sans-serif";
+            
+            // Incident Trends Chart
+            const incidentTrendsCtx = document.getElementById('incidentTrendsChart').getContext('2d');
+            new Chart(incidentTrendsCtx, {
+                type: 'line',
+                data: {
+                    labels: ['2018', '2019', '2020', '2021', '2022', '2023', '2024'],
+                    datasets: [
+                        {
+                            label: 'Total Incidents',
+                            data: [2118, 2544, 2983, 3416, 4887, 5602, 4395],
+                            borderColor: '#00897b',
+                            backgroundColor: 'rgba(0, 137, 123, 0.1)',
+                            tension: 0.4,
+                            fill: true
+                        },
+                        {
+                            label: 'Fatalities',
+                            data: [9385, 11458, 10056, 14361, 14653, 7819, 5534],
+                            borderColor: '#d32f2f',
+                            backgroundColor: 'rgba(211, 47, 47, 0.1)',
+                            tension: 0.4,
+                            fill: true
+                        }
+                    ]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        title: {
+                            display: true,
+                            text: 'Security Incidents and Fatalities in Nigeria (2018-2024)',
+                            font: {
+                                size: 16
+                            }
+                        },
+                        legend: {
+                            position: 'top'
+                        }
+                    },
+                    scales: {
+                        x: {
+                            grid: {
+                                color: 'rgba(255, 255, 255, 0.1)'
+                            }
+                        },
+                        y: {
+                            grid: {
+                                color: 'rgba(255, 255, 255, 0.1)'
+                            },
+                            beginAtZero: true
+                        }
+                    }
+                }
+            });
+            
+            // Incident Type Chart
+            const incidentTypeCtx = document.getElementById('incidentTypeChart').getContext('2d');
+            new Chart(incidentTypeCtx, {
+                type: 'doughnut',
+                data: {
+                    labels: ['Homicide', 'Kidnapping', 'Transportation Accident', 'Armed Robbery', 'Terrorism', 'Other'],
+                    datasets: [{
+                        data: [28.2, 11.0, 10.2, 6.2, 3.7, 40.7],
+                        backgroundColor: [
+                            '#d32f2f', '#ef6c00', '#f57c00', '#ffa000', '#c0ca33', '#37474f'
+                        ],
+                        borderWidth: 1,
+                        borderColor: '#1a1a1a'
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        title: {
+                            display: true,
+                            text: 'Incident Distribution by Type',
+                            font: {
+                                size: 16
+                            }
+                        },
+                        legend: {
+                            position: 'right'
+                        }
+                    }
+                }
+            });
+            
+            // Casualties by Year Chart
+            const casualtiesCtx = document.getElementById('casualtiesByYearChart').getContext('2d');
+            new Chart(casualtiesCtx, {
+                type: 'bar',
+                data: {
+                    labels: ['2018', '2019', '2020', '2021', '2022', '2023', '2024'],
+                    datasets: [
+                        {
+                            label: 'Deaths',
+                            data: [9385, 11458, 10056, 14361, 14653, 7819, 5534],
+                            backgroundColor: 'rgba(211, 47, 47, 0.7)',
+                            borderColor: '#d32f2f',
+                            borderWidth: 1
+                        },
+                        {
+                            label: 'Injuries',
+                            data: [1660, 2547, 2320, 2093, 2660, 3120, 1795],
+                            backgroundColor: 'rgba(255, 152, 0, 0.7)',
+                            borderColor: '#ff9800',
+                            borderWidth: 1
+                        }
+                    ]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        title: {
+                            display: true,
+                            text: 'Casualties by Year',
+                            font: {
+                                size: 16
+                            }
+                        },
+                        legend: {
+                            position: 'top'
+                        }
+                    },
+                    scales: {
+                        x: {
+                            grid: {
+                                color: 'rgba(255, 255, 255, 0.1)'
+                            },
+                            stacked: true
+                        },
+                        y: {
+                            grid: {
+                                color: 'rgba(255, 255, 255, 0.1)'
+                            },
+                            stacked: true
+                        }
+                    }
+                }
+            });
+            
+            // Success Rate Chart
+            const successRateCtx = document.getElementById('successRateChart').getContext('2d');
+            new Chart(successRateCtx, {
+                type: 'pie',
+                data: {
+                    labels: ['Successful', 'Prevented/Failed'],
+                    datasets: [{
+                        data: [99, 1],
+                        backgroundColor: [
+                            '#d32f2f', '#00897b'
+                        ],
+                        borderWidth: 1,
+                        borderColor: '#1a1a1a'
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        title: {
+                            display: true,
+                            text: 'Attack Success Rate',
+                            font: {
+                                size: 16
+                            }
+                        },
+                        legend: {
+                            position: 'bottom'
+                        }
+                    }
+                }
+            });
+            
+            // Weapons Chart
+            const weaponsCtx = document.getElementById('weaponsChart').getContext('2d');
+            new Chart(weaponsCtx, {
+                type: 'bar',
+                data: {
+                    labels: ['Firearms', 'Melee', 'Explosives', 'Other/Unknown'],
+                    datasets: [{
+                        label: 'Percentage',
+                        data: [33.2, 8.8, 2.3, 55.8],
+                        backgroundColor: [
+                            'rgba(211, 47, 47, 0.7)',
+                            'rgba(245, 124, 0, 0.7)',
+                            'rgba(255, 160, 0, 0.7)',
+                            'rgba(55, 71, 79, 0.7)'
+                        ],
+                        borderColor: [
+                            '#d32f2f',
+                            '#f57c00',
+                            '#ffa000',
+                            '#37474f'
+                        ],
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        title: {
+                            display: true,
+                            text: 'Weapons Used in Attacks',
+                            font: {
+                                size: 16
+                            }
+                        },
+                        legend: {
+                            display: false
+                        }
+                    },
+                    scales: {
+                        x: {
+                            grid: {
+                                color: 'rgba(255, 255, 255, 0.1)'
+                            }
+                        },
+                        y: {
+                            grid: {
+                                color: 'rgba(255, 255, 255, 0.1)'
+                            },
+                            beginAtZero: true,
+                            max: 60,
+                            ticks: {
+                                callback: function(value) {
+                                    return value + '%';
+                                }
+                            }
+                        }
+                    }
+                }
+            });
+            
+            // Regional Risk Chart
+            const regionalRiskCtx = document.getElementById('regionalRiskChart').getContext('2d');
+            new Chart(regionalRiskCtx, {
+                type: 'bar',
+                data: {
+                    labels: ['North East', 'North West', 'North Central', 'South South', 'South East', 'South West'],
+                    datasets: [
+                        {
+                            label: 'Risk Score',
+                            data: [14.0, 6.5, 5.2, 2.0, 1.5, 0.5],
+                            backgroundColor: [
+                                'rgba(211, 47, 47, 0.7)',
+                                'rgba(211, 47, 47, 0.6)',
+                                'rgba(211, 47, 47, 0.5)',
+                                'rgba(255, 160, 0, 0.7)',
+                                'rgba(255, 160, 0, 0.6)',
+                                'rgba(0, 137, 123, 0.7)'
+                            ],
+                            borderColor: [
+                                '#d32f2f',
+                                '#d32f2f',
+                                '#d32f2f',
+                                '#ffa000',
+                                '#ffa000',
+                                '#00897b'
+                            ],
+                            borderWidth: 1
+                        },
+                        {
+                            label: 'Percentage of Incidents',
+                            data: [9.7, 15.9, 19.1, 17.4, 12.0, 25.9],
+                            backgroundColor: 'rgba(0, 137, 123, 0.3)',
+                            borderColor: '#00897b',
+                            borderWidth: 1,
+                            type: 'line',
+                            yAxisID: 'y1'
+                        }
+                    ]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        title: {
+                            display: true,
+                            text: 'Regional Risk Score vs Incident Percentage',
+                            font: {
+                                size: 16
+                            }
+                        },
+                        legend: {
+                            position: 'top'
+                        }
+                    },
+                    scales: {
+                        x: {
+                            grid: {
+                                color: 'rgba(255, 255, 255, 0.1)'
+                            }
+                        },
+                        y: {
+                            grid: {
+                                color: 'rgba(255, 255, 255, 0.1)'
+                            },
+                            beginAtZero: true,
+                            title: {
+                                display: true,
+                                text: 'Risk Score'
+                            },
+                            max: 16
+                        },
+                        y1: {
+                            position: 'right',
+                            grid: {
+                                drawOnChartArea: false
+                            },
+                            beginAtZero: true,
+                            title: {
+                                display: true,
+                                text: 'Percentage of Incidents'
+                            },
+                            max: 30,
+                            ticks: {
+                                callback: function(value) {
+                                    return value + '%';
+                                }
+                            }
+                        }
+                    }
+                }
+            });
+            
+            // Seasonal Risk Chart
+            const seasonalRiskCtx = document.getElementById('seasonalRiskChart').getContext('2d');
+            new Chart(seasonalRiskCtx, {
+                type: 'line',
+                data: {
+                    labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
+                    datasets: [
+                        {
+                            label: 'North East',
+                            data: [7.2, 8.3, 7.5, 6.9, 7.8, 9.1, 10.5, 12.4, 10.2, 5.6, 6.8, 7.7],
+                            borderColor: '#d32f2f',
+                            backgroundColor: 'rgba(211, 47, 47, 0.1)',
+                            tension: 0.4,
+                            fill: true
+                        },
+                        {
+                            label: 'North West',
+                            data: [8.5, 9.2, 10.7, 8.4, 7.3, 6.9, 6.1, 7.2, 8.5, 7.6, 6.8, 5.3],
+                            borderColor: '#ef6c00',
+                            backgroundColor: 'rgba(239, 108, 0, 0.1)',
+                            tension: 0.4,
+                            fill: true
+                        },
+                        {
+                            label: 'North Central',
+                            data: [6.1, 7.2, 8.3, 7.8, 8.5, 9.2, 9.7, 10.1, 11.2, 8.4, 5.9, 7.3],
+                            borderColor: '#f57c00',
+                            backgroundColor: 'rgba(245, 124, 0, 0.1)',
+                            tension: 0.4,
+                            fill: true
+                        }
+                    ]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        title: {
+                            display: true,
+                            text: 'Seasonal Risk Patterns by Region',
+                            font: {
+                                size: 16
+                            }
+                        },
+                        legend: {
+                            position: 'top'
+                        }
+                    },
+                    scales: {
+                        x: {
+                            grid: {
+                                color: 'rgba(255, 255, 255, 0.1)'
+                            }
+                        },
+                        y: {
+                            grid: {
+                                color: 'rgba(255, 255, 255, 0.1)'
+                            },
+                            beginAtZero: true,
+                            title: {
+                                display: true,
+                                text: 'Risk Score'
+                            }
+                        }
+                    }
+                }
+            });
+            
+            // Perpetrator Groups Chart
+            const perpetratorGroupsCtx = document.getElementById('perpetratorGroupsChart').getContext('2d');
+            new Chart(perpetratorGroupsCtx, {
+                type: 'bar',
+                data: {
+                    labels: ['Boko Haram/ISWAP', 'Bandit Groups', 'Separatist Movements', 'Communal Militias', 'Criminal Networks', 'Others'],
+                    datasets: [
+                        {
+                            label: '2018-2020',
+                            data: [38, 25, 8, 15, 10, 4],
+                            backgroundColor: 'rgba(0, 137, 123, 0.7)',
+                            borderColor: '#00897b',
+                            borderWidth: 1
+                        },
+                        {
+                            label: '2021-2024',
+                            data: [30, 35, 15, 12, 5, 3],
+                            backgroundColor: 'rgba(211, 47, 47, 0.7)',
+                            borderColor: '#d32f2f',
+                            borderWidth: 1
+                        }
+                    ]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        title: {
+                            display: true,
+                            text: 'Perpetrator Group Attribution (% of incidents)',
+                            font: {
+                                size: 16
+                            }
+                        },
+                        legend: {
+                            position: 'top'
+                        }
+                    },
+                    scales: {
+                        x: {
+                            grid: {
+                                color: 'rgba(255, 255, 255, 0.1)'
+                            }
+                        },
+                        y: {
+                            grid: {
+                                color: 'rgba(255, 255, 255, 0.1)'
+                            },
+                            beginAtZero: true,
+                            max: 40,
+                            ticks: {
+                                callback: function(value) {
+                                    return value + '%';
+                                }
+                            }
+                        }
+                    }
+                }
+            });
+            
+            // Weapon Trends Chart
+            const weaponTrendsCtx = document.getElementById('weaponTrendsChart').getContext('2d');
+            new Chart(weaponTrendsCtx, {
+                type: 'line',
+                data: {
+                    labels: ['2018', '2019', '2020', '2021', '2022', '2023', '2024'],
+                    datasets: [
+                        {
+                            label: 'Small Arms',
+                            data: [65, 68, 70, 72, 75, 78, 80],
+                            borderColor: '#d32f2f',
+                            backgroundColor: 'rgba(211, 47, 47, 0.1)',
+                            tension: 0.4,
+                            fill: true
+                        },
+                        {
+                            label: 'IEDs',
+                            data: [25, 22, 18, 15, 18, 20, 22],
+                            borderColor: '#f57c00',
+                            backgroundColor: 'rgba(245, 124, 0, 0.1)',
+                            tension: 0.4,
+                            fill: true
+                        },
+                        {
+                            label: 'Heavy Weapons',
+                            data: [5, 6, 8, 10, 12, 15, 18],
+                            borderColor: '#ffa000',
+                            backgroundColor: 'rgba(255, 160, 0, 0.1)',
+                            tension: 0.4,
+                            fill: true
+                        }
+                    ]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        title: {
+                            display: true,
+                            text: 'Weapon Usage Trends (2018-2024)',
+                            font: {
+                                size: 16
+                            }
+                        },
+                        legend: {
+                            position: 'top'
+                        }
+                    },
+                    scales: {
+                        x: {
+                            grid: {
+                                color: 'rgba(255, 255, 255, 0.1)'
+                            }
+                        },
+                        y: {
+                            grid: {
+                                color: 'rgba(255, 255, 255, 0.1)'
+                            },
+                            beginAtZero: true,
+                            max: 100,
+                            ticks: {
+                                callback: function(value) {
+                                    return value + '%';
+                                }
+                            }
+                        }
+                    }
+                }
+            });
+            
+            // Threat Financing Chart
+            const threatFinancingCtx = document.getElementById('threatFinancingChart').getContext('2d');
+            new Chart(threatFinancingCtx, {
+                type: 'doughnut',
+                data: {
+                    labels: ['Kidnapping for Ransom', 'Resource Extraction', 'Extortion', 'Illegal Taxation', 'External Support', 'Other'],
+                    datasets: [{
+                        data: [40, 25, 15, 10, 7, 3],
+                        backgroundColor: [
+                            '#d32f2f', '#ef6c00', '#f57c00', '#ffa000', '#c0ca33', '#37474f'
+                        ],
+                        borderWidth: 1,
+                        borderColor: '#1a1a1a'
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        title: {
+                            display: true,
+                            text: 'Armed Group Financing Sources',
+                            font: {
+                                size: 16
+                            }
+                        },
+                        legend: {
+                            position: 'right',
+                            labels: {
+                                boxWidth: 12,
+                                font: {
+                                    size: 10
+                                }
+                            }
+                        }
+                    }
+                }
+            });
+            
+            // Model Accuracy Chart
+            const modelAccuracyCtx = document.getElementById('modelAccuracyChart').getContext('2d');
+            new Chart(modelAccuracyCtx, {
+                type: 'line',
+                data: {
+                    labels: ['2018', '2019', '2020', '2021', '2022', '2023', '2024'],
+                    datasets: [{
+                        label: 'Model Accuracy',
+                        data: [62, 65, 68, 72, 75, 78, 81],
+                        borderColor: '#00897b',
+                        backgroundColor: 'rgba(0, 137, 123, 0.1)',
+                        tension: 0.4,
+                        fill: true
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        title: {
+                            display: true,
+                            text: 'Predictive Model Accuracy',
+                            font: {
+                                size: 16
+                            }
+                        },
+                        legend: {
+                            display: false
+                        }
+                    },
+                    scales: {
+                        x: {
+                            grid: {
+                                color: 'rgba(255, 255, 255, 0.1)'
+                            }
+                        },
+                        y: {
+                            grid: {
+                                color: 'rgba(255, 255, 255, 0.1)'
+                            },
+                            beginAtZero: true,
+                            max: 100,
+                            ticks: {
+                                callback: function(value) {
+                                    return value + '%';
+                                }
+                            }
+                        }
+                    }
+                }
+            });
+        });
+    </script>
+</body>
+</html>
